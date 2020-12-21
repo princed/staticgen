@@ -271,7 +271,7 @@ func visitHTML(r io.Reader, root, u *url.URL) ([]*url.URL, error) {
 
 // parseLinks returns resolved target urls in the document.
 func parseLinks(doc *dom.Document, root, u *url.URL) (urls []*url.URL, err error) {
-	doc.Find("a, link, img, source").Each(func(i int, s *dom.Selection) {
+	doc.Find("a, link, img, source, script").Each(func(i int, s *dom.Selection) {
 		href := s.AttrOr("href", s.AttrOr("src", s.AttrOr("srcset", "")))
 		if href == "" {
 			return
