@@ -19,6 +19,21 @@ Via [gobinaries.com](https://gobinaries.com):
 $ curl -sf https://gobinaries.com/tj/staticgen/cmd/staticgen | sh
 ```
 
+## Docker
+
+Available as a [docker image](https://hub.docker.com/repository/docker/prncd/staticgen), see example `docker-compose.yml`:
+
+```yaml
+version: '3'
+
+services:
+  staticgen:
+    image: prncd/staticgen
+    volumes:
+      # Place static.json here
+      - ./data:/data
+```
+
 ## Configuration
 
 Configuration is stored within a `./static.json` file in your project's root directory. The following options are available:
